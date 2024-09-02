@@ -1,0 +1,31 @@
+[{
+  "order_created_year": "2019",
+  "total_sales": "127652.22011995316",
+  "previous_year_sales": null,
+  "pct_change": null
+}, {
+  "order_created_year": "2020",
+  "total_sales": "432227.40046370029",
+  "previous_year_sales": "127652.22011995316",
+  "pct_change": "238.59763665492207"
+}, {
+  "order_created_year": "2021",
+  "total_sales": "802089.38093197346",
+  "previous_year_sales": "432227.40046370029",
+  "pct_change": "85.571155385216073"
+}, {
+  "order_created_year": "2022",
+  "total_sales": "1341694.5809763856",
+  "previous_year_sales": "802089.38093197346",
+  "pct_change": "67.27494626813629"
+}, {
+  "order_created_year": "2023",
+  "total_sales": "2240175.1625190154",
+  "previous_year_sales": "1341694.5809763856",
+  "pct_change": "66.966103484504075"
+}, {
+  "order_created_year": "2024",
+  "total_sales": "3102924.502997078",
+  "previous_year_sales": "2240175.1625190154",
+  "pct_change": "38.512583967225346"
+}]
