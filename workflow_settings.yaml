@@ -1,0 +1,5 @@
+defaultProject: mineral-circlet-414407
+defaultLocation: US
+defaultDataset: dataform
+defaultAssertionDataset: dataform_assertions
+dataformCoreVersion: 3.0.0
