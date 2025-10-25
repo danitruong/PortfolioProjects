@@ -11,7 +11,7 @@ FROM (
   FROM 
     `mineral-circlet-414407.ecommerce_data.order_items`
   WHERE 
-    status NOT IN ('Cancelled', 'Returned')
+    status != 'Cancelled' AND status != 'Returned'
   GROUP BY 1
 ) sales_by_year
 ORDER BY 1;
@@ -75,7 +75,6 @@ FROM (
   GROUP BY 1) customer_purchases_table;
 
 -- Average customer lifespan in days (excluding one-time purchases in 2024)
-DROP TABLE IF EXISTS mineral-circlet-414407.ecommerce_data.customer_lifespan_table;
 CREATE TEMP TABLE customer_lifespan_table
 AS
 SELECT 
@@ -177,5 +176,5 @@ FROM (
     GROUP BY 1,2,3)
 WHERE
   NOT (last_purchase_date > '2024-01-01' AND
-  customer_lifespan_days = 0)
+  customer_lifespan_days = 1)
 GROUP BY 1;
