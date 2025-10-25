@@ -9,8 +9,6 @@ Welcome to my portfolio of data analysis projects demonstrating SQL and data ana
 - SQL skills: Window functions, aggregations, joins, temporary tables
 - Key insights: Sales growth patterns, product performance, customer segmentation
 
-[Add more projects as you complete them]
-
 ## Skills
 - SQL (BigQuery)
 - Data Analysis
