@@ -9,7 +9,7 @@ FROM (
     LEFT(CAST(created_at AS STRING),4) AS order_created_year,
     SUM(sale_price) AS total_sales
   FROM 
-    `mineral-circlet-414407.ecommerce_data.order_items`
+    `bigquery-public-data.thelook_ecommerce.order_items`
   WHERE 
     status != 'Cancelled' AND status != 'Returned'
   GROUP BY 1
@@ -21,8 +21,8 @@ SELECT
   prod.name,
   COUNT(ord.product_id) AS quantity_ordered
 FROM 
-  `mineral-circlet-414407.ecommerce_data.order_items` ord
-JOIN `mineral-circlet-414407.ecommerce_data.products` prod
+  `bigquery-public-data.thelook_ecommerce.order_items` ord
+JOIN `bigquery-public-data.thelook_ecommerce.products` prod
 ON prod.id = ord.product_id
 WHERE 
   ord.status != 'Cancelled' AND
@@ -36,8 +36,8 @@ SELECT
   prod.name,
   COUNT(ord.product_id) AS quantity_ordered
 FROM 
-  `mineral-circlet-414407.ecommerce_data.order_items` ord
-JOIN `mineral-circlet-414407.ecommerce_data.products` prod
+  `bigquery-public-data.thelook_ecommerce.order_items` ord
+JOIN `bigquery-public-data.thelook_ecommerce.products` prod
 ON prod.id = ord.product_id
 WHERE 
   ord.status != 'Cancelled' AND 
@@ -54,7 +54,7 @@ FROM (
     order_id,
     SUM(sale_price) AS purchase_value
   FROM 
-    `mineral-circlet-414407.ecommerce_data.order_items`
+    `bigquery-public-data.thelook_ecommerce.order_items`
   WHERE 
     status != 'Cancelled' AND 
     status != 'Returned'
@@ -68,7 +68,7 @@ FROM (
     user_id,
     COUNT(order_id) AS number_of_purchases
   FROM 
-    `mineral-circlet-414407.ecommerce_data.order_items`
+    `bigquery-public-data.thelook_ecommerce.order_items`
   WHERE 
     status != 'Cancelled' AND 
     status != 'Returned'
@@ -83,7 +83,7 @@ SELECT
   MAX(created_at) AS last_purchase_date,
   DATE_DIFF(MAX(created_at), MIN(created_at), DAY) + 1 AS customer_lifespan_days
 FROM 
-  `mineral-circlet-414407.ecommerce_data.orders`
+  `bigquery-public-data.thelook_ecommerce.orders`
 WHERE 
   status != 'Cancelled' AND 
   status != 'Returned'
@@ -106,9 +106,9 @@ FROM (
     use.gender,
     SUM(ord.sale_price) AS purchase_value
   FROM 
-    `mineral-circlet-414407.ecommerce_data.order_items` ord
+    `bigquery-public-data.thelook_ecommerce.order_items` ord
   JOIN 
-    `mineral-circlet-414407.ecommerce_data.users` use
+    `bigquery-public-data.thelook_ecommerce.users` use
   ON ord.user_id = use.id
   WHERE 
     ord.status != 'Cancelled' AND 
@@ -117,16 +117,16 @@ FROM (
 GROUP BY 1;
 
 -- Create a permanent table for visualization
-CREATE OR REPLACE TABLE mineral-circlet-414407.ecommerce_data.customer_purchases_table 
+CREATE OR REPLACE TABLE bigquery-public-data.thelook_ecommerce.customer_purchases_table 
 AS
 SELECT 
   ord.order_id,
   use.gender,
   SUM(ord.sale_price) AS purchase_value
 FROM 
-  `mineral-circlet-414407.ecommerce_data.order_items` ord
+  `bigquery-public-data.thelook_ecommerce.order_items` ord
 JOIN 
-  `mineral-circlet-414407.ecommerce_data.users` use
+  `bigquery-public-data.thelook_ecommerce.users` use
 ON ord.user_id = use.id
 WHERE 
   ord.status != 'Cancelled' AND 
@@ -143,9 +143,9 @@ FROM (
     use.gender,
     COUNT(ord.order_id) AS number_of_purchases
   FROM 
-   `mineral-circlet-414407.ecommerce_data.order_items` ord
+   `bigquery-public-data.thelook_ecommerce.order_items` ord
 JOIN 
-  `mineral-circlet-414407.ecommerce_data.users` use
+  `bigquery-public-data.thelook_ecommerce.users` use
   ON ord.user_id = use.id
   WHERE 
     ord.status != 'Cancelled' AND 
@@ -166,9 +166,9 @@ FROM (
       MAX(ord.created_at) AS last_purchase_date,
       DATE_DIFF(MAX(ord.created_at), MIN(ord.created_at), DAY) AS customer_lifespan_days
     FROM 
-      `mineral-circlet-414407.ecommerce_data.orders` ord
+      `bigquery-public-data.thelook_ecommerce.orders` ord
     JOIN
-      `mineral-circlet-414407.ecommerce_data.users` use
+      `bigquery-public-data.thelook_ecommerce.users` use
     ON ord.user_id = use.id
     WHERE 
       ord.status != 'Cancelled' AND 
