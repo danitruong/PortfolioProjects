@@ -116,23 +116,6 @@ FROM (
   GROUP BY 1,2)
 GROUP BY 1;
 
--- Create a permanent table for visualization
-CREATE OR REPLACE TABLE bigquery-public-data.thelook_ecommerce.customer_purchases_table 
-AS
-SELECT 
-  ord.order_id,
-  use.gender,
-  SUM(ord.sale_price) AS purchase_value
-FROM 
-  `bigquery-public-data.thelook_ecommerce.order_items` ord
-JOIN 
-  `bigquery-public-data.thelook_ecommerce.users` use
-ON ord.user_id = use.id
-WHERE 
-  ord.status != 'Cancelled' AND 
-  ord.status != 'Returned'
-GROUP BY 1,2;
-
 -- Average number of purchases by gender
 SELECT 
   gender,
