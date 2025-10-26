@@ -10,8 +10,8 @@ Analysis of an e-commerce company's sales data to identify revenue trends, produ
 - What is the customer lifetime value and how does it vary by customer segment?
 
 ## Data Source
-- **Dataset**: BigQuery's `thelook_ecommerce` dataset
-- **Analysis Date**: September 2, 2024
+- **Dataset**: BigQuery Public Dataset `bigquery-public-data.thelook_ecommerce`
+- **Analysis Date**: October 2025
 - **Note**: Dataset is continually updated, so results may vary slightly when reproduced
 
 ## Key Findings
@@ -20,20 +20,29 @@ Analysis of an e-commerce company's sales data to identify revenue trends, produ
 - Sales more than tripled from 2019 to 2020, with consistent double-digit growth in subsequent years
 - Strong year-over-year growth indicates healthy business expansion
 
+![Year-over-Year Sales Growth](images/sales_trend_graph.png)
+
 ### 🏆 Product Performance
-- **Top Products**: 5 of the top 10 products are Men's Jeans, indicating a strong category
+- **Top Products**: 3 of the top 10 products are Men's Jeans, indicating a strong category
 - **Underperformers**: Over 1,000 products sold only one unit, suggesting inventory optimization opportunities
+
+![Top 10 Products Sold](images/product_analysis.png)
 
 ### 💰 Customer Value Metrics
 - **Average Purchase Value**: $86 per order
-- **Customer Lifetime Value**: $77 per customer
+- **Customer Lifetime Value**: $128 per customer
 - **Purchase Frequency**: Average of 2 purchases per customer
+- **Average Customer Lifespan**: 262 days
 
 ### 👥 Customer Segmentation
 - **Gender Analysis**:
   - Men have higher average purchase value ($92 vs $81 for women)
-  - Men show higher customer lifetime value ($83 vs $73 for women)
+  - Men show higher customer lifetime value ($77 vs $67 for women)
   - Both segments have similar purchase frequency and customer lifespan
+
+![Gender Analysis](images/gender_analysis_table.png)
+
+![Gender Analysis](images/gender_analysis_graph.png)
 
 ## Recommendations
 
