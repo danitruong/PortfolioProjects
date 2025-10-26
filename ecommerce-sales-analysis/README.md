@@ -50,10 +50,12 @@ Analysis of an e-commerce company's sales data to identify revenue trends, produ
 2. **Optimize Product Portfolio**: Review underperforming products (1,000+ single-sale items) for potential discontinuation
 3. **Leverage Top Categories**: Expand Men's Jeans collection and promote similar high-performing categories
 4. **Customer Retention**: Implement strategies to increase purchase frequency across all segments
+5. **Increase Customer Value**: Develop loyalty programs to increase purchase frequency
 
 ## Technical Skills Demonstrated
 
 - **SQL Functions**: Window functions (LAG), aggregate functions, date functions
+- **Data Cleaning**: Filtering cancelled/returned orders and data validation
 - **Data Analysis**: Trend analysis, cohort analysis, performance benchmarking
 - **Business Intelligence**: KPI calculation (CLV, average order value), segmentation analysis
 - **Data Modeling**: Temporary tables, joined datasets across multiple tables
